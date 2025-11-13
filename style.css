@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
 
 *{
     margin: 0;
@@ -8,7 +8,7 @@
 :root{
     --primary-color:#966d04;
     --secondary-color:#f4f4f4;
-    --font:"Lilita One", sans-serif;
+    --font:"Archivo Narrow", sans-serif;
 }
 
 body{
@@ -95,11 +95,12 @@ form .btn{
 
 }
 
-.describe{
-    width: 80%;
+.describe, .dataNotFound, .dataBlank{
+    width: 30%;
     padding: 10px;
 
     font-size: 18px;
+    border: 2px solid rgba(244, 244, 244,0.7);
     border-radius: 40px;
     background-color: var(--primary-color);
     color: var(--secondary-color);
@@ -107,7 +108,11 @@ form .btn{
 
 }
 
-.info{
+.dataNotFound, .dataBlank{
+    display: none;
+}
+
+.info, .dataNotFound p, .dataBlank p{
     text-align: center;
 }
 
@@ -120,11 +125,13 @@ form .btn{
     border-radius: 20px;
     background-color: var(--primary-color);
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+
+    animation: app 0.3s linear forwards;
 
 }
 
@@ -143,10 +150,19 @@ form .btn{
     border: 2px solid rgba(255, 255, 255,0.6);
     border-radius: 20px;
 
-    display: flex;
+    display: none;
     align-items: start;
     justify-content: center;
     gap: 20px;
+
+
+
+    
+
+}
+
+.fullRecipies .meal{
+    animation: app 0.3s linear forwards;
 }
 
 .fullRecipies .meal .mealImg{
@@ -186,6 +202,17 @@ form .btn{
     font-size: 16px;
 }
 
+
+
+@keyframes app {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
 
 
 @media (min-width:1600px){
@@ -247,7 +274,7 @@ form .btn{
         margin: 0 auto;
     }
 
-    .describe{
+    .describe, .dataNotFound, .dataBlank{
         width: 300px;
         font-size: 12px;
     }
@@ -277,7 +304,9 @@ form .btn{
         width: 100%;
     }
 
-    /* .fullRecipies .recipiesBox .recipies{
-        text-align: left;
-    } */
+    .ingredientBox .ingredientHead{
+        margin-bottom: 10px;
+    }
+
+
 }
