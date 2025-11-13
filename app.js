@@ -25,6 +25,7 @@ getForm.addEventListener('submit',function(e){
                     dataError.style.display='block';
                     dataBlank.style.display="none";
                     mealsDisplay.style.display="none";
+                    recipiesDisplay.style.display='none';
                 }else{
                     // console.log(data);
                     describe.style.display = "none";
