@@ -59,18 +59,19 @@ form{
 
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    font-size: 16px;
+    font-size: 18px;
+    font-family: var(--font);
 
     border: 0;
     outline: 0;
-    border-radius: 20px;
+    border-radius: 40px;
 
 
 }
 
 .form-control::placeholder{
     font-family: var(--font);
-    font-size: 20px;
+    font-size: 18px;
     color: rgba(244, 244, 244,0.7);
 }
 
@@ -80,7 +81,8 @@ form .btn{
 
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 14px;
+    font-size: 16px;
+    font-family: var(--font);
     font-weight: 600px;
 
     border: none;
@@ -139,6 +141,8 @@ form .btn{
     width: 180px;
     height: 150px;
     border-radius: 10px;
+
+    cursor: pointer;
 }
 
 .fullRecipies{
@@ -272,6 +276,10 @@ form .btn{
     .form-control{
         width: 350px;
         margin: 0 auto;
+    }
+
+    form .btn{
+        right: 3%;
     }
 
     .describe, .dataNotFound, .dataBlank{
