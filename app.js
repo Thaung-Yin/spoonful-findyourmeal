@@ -9,14 +9,14 @@ const dataBlank = document.getElementById('dataBlank');
 
 
 
-getForm.addEventListener('submit',function(e){
+getForm.addEventListener('submit',async function(e){
     e.preventDefault();
     let searchVal = getSearchBar.value;
 
     if(searchVal.trim()){
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchVal}`;
 
-    fetch(url)
+    await fetch(url)
         .then(response=>response.json())
             .then(data=>{
 
@@ -27,7 +27,7 @@ getForm.addEventListener('submit',function(e){
                     mealsDisplay.style.display="none";
                     recipiesDisplay.style.display='none';
                 }else{
-                    // console.log(data);
+                    console.log(data);
                     describe.style.display = "none";
                     dataError.style.display='none';
                     dataBlank.style.display="none"
@@ -49,16 +49,12 @@ getForm.addEventListener('submit',function(e){
         getSearchBar.focus();
 });
 
-mealsDisplay.addEventListener('click',function(e){
-                    // console.log(e.target);
-
-    
+mealsDisplay.addEventListener('click',async function(e){
     let foodId = e.target.getAttribute('data-idmeal');
     // console.log(foodId);
-
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`
 
-    fetch(url)
+     await fetch(url)
         .then(response=>response.json())
                 .then(data=>{
 
@@ -85,6 +81,7 @@ function fullFoodRecipies(food){
     recipiesDisplay.innerHTML = `
         <div class="meal">
             <img src="${food.strMealThumb}" alt="${food.strMeal}" class="mealImg">
+            
         </div>
         <div class="recipiesBox">
             <h2>${food.strMeal}</h2>
